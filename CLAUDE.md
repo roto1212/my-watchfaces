@@ -49,6 +49,10 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
 - 들여쓰기는 원본 코드 스타일(2 spaces)을 따른다. 기존 파일 안에서 스타일을 섞지 않는다.
 - WSL2에서 코드 작성과 `zeus build`까지 하고, **시뮬레이터는 Windows/macOS 전용**이라 Windows 쪽에서 실행한다.
 - 실기기 테스트: 폰의 Zepp 앱 개발자 모드 + QR 스캔
+    - 개발자 모드 켜기: `프로필 > 설정 > 정보`에서 Zepp 아이콘 7번 탭 (이후 `프로필 > 설정`에 `개발자모드` 항목 생김. 여기엔 스캔이 없음)
+    - QR 스캔: 하단 네비 `기기 > 일반 > 개발자모드`의 오른쪽 위 스캔 아이콘 (Zepp 앱 10.8.7 Android 기준. 공식 문서의 `프로필 > 기기 선택` 경로는 이 버전과 다름)
+    - 실행: `cd src/watchfaces/modular && zeus preview` 후 대상 기기를 고르고 QR 스캔 (워치 동기화/업데이트 중에는 전송 실패 가능)
+    - 확인 결과 (2026-09-29): Amazfit Active 3 Premium(466x466 원형)에 modular-wellness 설치 성공. 워치에는 나타나고 Zepp 앱의 워치페이스 목록에는 안 보임 (개발자 모드 설치 특성으로 추정)
 
 ```bash
 pnpm add -g @zeppos/zeus-cli
