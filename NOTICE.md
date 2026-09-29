@@ -19,4 +19,4 @@
 - needle: Play Regular
 
 ## 변경 이력
-- (여기에 수정 내용과 날짜를 기록)
+- 2026-09-29: modular의 `appId`(1073741 → 1129253)와 `appName`(Modular → modular-wellness), `vender`(novvember → sdb8324)를 개발자 콘솔 등록 값으로 변경

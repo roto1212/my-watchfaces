@@ -1,15 +1,15 @@
 {
   "configVersion": "v3",
   "app": {
-    "appId": 1073741,
-    "appName": "Modular",
+    "appId": 1129253,
+    "appName": "modular-wellness",
     "appType": "watchface",
     "version": {
       "code": 31,
       "name": "2.5.4"
     },
     "icon": "icon.png",
-    "vender": "novvember",
+    "vender": "sdb8324",
     "cover": [
       "cover.png"
     ],
@@ -44,10 +44,10 @@
   },
   "i18n": {
     "en-US": {
-      "appName": "Modular"
+      "appName": "modular-wellness"
     },
     "ru-RU": {
-      "appName": "Modular"
+      "appName": "modular-wellness"
     }
   },
   "defaultLanguage": "en-US",
