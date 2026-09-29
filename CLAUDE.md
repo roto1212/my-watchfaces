@@ -11,6 +11,7 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
     - `NOTICE.md`의 "변경 이력"에 수정 내용과 날짜를 계속 기록
 - 개인 워치에만 설치하는 용도면 배포 의무는 없다.
 - 복사해 온 항목: `src/watchfaces/{modular, needle, text-lines}`, 공용 코드 `src/{adapters,types,utils}`, `scripts/`
+    - `modular`는 폴더명을 `modular-wellness`로 변경함 (2026-09-29). 릴리스 스크립트가 폴더명을 `[a-z0-9-]+`로 검사하므로 하이픈만 사용한다.
 
 ### 라이선스 검토 결과 (원본 README/자산 기준)
 | 페이스 | 디자인 참고 | 폰트 | 위험도 |
@@ -51,7 +52,7 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
 - 실기기 테스트: 폰의 Zepp 앱 개발자 모드 + QR 스캔
     - 개발자 모드 켜기: `프로필 > 설정 > 정보`에서 Zepp 아이콘 7번 탭 (이후 `프로필 > 설정`에 `개발자모드` 항목 생김. 여기엔 스캔이 없음)
     - QR 스캔: 하단 네비 `기기 > 일반 > 개발자모드`의 오른쪽 위 스캔 아이콘 (Zepp 앱 10.8.7 Android 기준. 공식 문서의 `프로필 > 기기 선택` 경로는 이 버전과 다름)
-    - 실행: `cd src/watchfaces/modular && zeus preview` 후 대상 기기를 고르고 QR 스캔 (워치 동기화/업데이트 중에는 전송 실패 가능)
+    - 실행: `cd src/watchfaces/modular-wellness && zeus preview` 후 대상 기기를 고르고 QR 스캔 (워치 동기화/업데이트 중에는 전송 실패 가능)
     - 확인 결과 (2026-09-29): Amazfit Active 3 Premium(466x466 원형)에 modular-wellness 설치 성공. 워치에는 나타나고 Zepp 앱의 워치페이스 목록에는 안 보임 (개발자 모드 설치 특성으로 추정)
 
 ```bash
@@ -79,7 +80,7 @@ zeus build      # dist/ 에 .zab 생성
 - [x] modular 하단 위젯을 편집 가능한 슬롯으로 변경 (`settings/BottomSettings.js`, edit_id 140, 옵션 heart(기본)/distance/steps/disable). 색상 테마 편집 슬롯은 12시 방향(y=4)으로 이동, 편집 모드 상단 안내 텍스트 삭제. 실기기 확인 완료
 - [x] AOD 배터리 아이콘에서 숫자 제거, 잔량 게이지를 테두리와 같은 색으로 표시 (20% 이하 빨간색). 실기기 확인 완료
 - [ ] 폰트 라이선스 전문(OFL) 포함 여부 결정
-- [ ] 배포 계획이 있으면 modular 이름 변경 및 아이콘 출처 점검
+- [ ] 배포 계획이 있으면 아이콘 출처 점검 (modular 이름은 `modular-wellness`로 변경 완료)
 - [ ] GitHub 원격 저장소 생성은 아직 하지 않음 (공개 시 GPL 조건 확인 후 진행)
 
 ## 작업 규칙

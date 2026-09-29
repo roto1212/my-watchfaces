@@ -5,7 +5,7 @@
 따라서 이 저장소 전체도 GPL-3.0(`LICENSE.txt`)을 따른다.
 
 ## 원본에서 가져온 것
-- `src/watchfaces/modular`, `src/watchfaces/needle`, `src/watchfaces/text-lines`
+- `src/watchfaces/modular`(현재 폴더명은 `modular-wellness`), `src/watchfaces/needle`, `src/watchfaces/text-lines`
 - 공용 코드: `src/adapters`, `src/types`, `src/utils`, `scripts`
 - 원 저작자: novvember (https://github.com/novvember)
 
@@ -25,3 +25,4 @@
 - 2026-09-29: modular 하단 위젯을 편집 가능한 슬롯으로 변경 (`BottomSettings`, edit_id 140, 옵션: heart(기본)/distance/steps/disable). 거리·걸음 수는 `BottomTextWidget`으로 표시하고, 편집 영역 테두리 이미지(`edit/bottom_select.png`, `bottom_unselect.png`)를 Pillow로 생성해 추가
 - 2026-09-29: modular 편집 모드 상단의 앱 이름/버전/벤더 안내 텍스트 삭제 (`WidgetSettings._buildBackground`). 색상 테마 편집 슬롯을 6시에서 12시 방향(y=4)으로 이동해 하단 편집 슬롯과 겹침 방지
 - 2026-09-29: modular AOD 배터리 아이콘에서 잔량 숫자 제거, 게이지를 테두리와 같은 색(흰색, 20% 이하 빨간색)으로 표시하도록 변경
+- 2026-09-29: modular 폴더명을 `modular-wellness`로 변경 (`src/watchfaces/modular` → `src/watchfaces/modular-wellness`)
