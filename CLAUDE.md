@@ -52,6 +52,9 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
 
 ```bash
 pnpm add -g @zeppos/zeus-cli
+# WSL + pnpm: zeus 실행 시 "Cannot find module 'zeppos-app-utils'" 에러가 나면
+# (pnpm이 패키지 내부 private-modules를 링크하지 않음) 전역 node_modules에 심볼릭 링크를 건다.
+#   cd "$(pnpm root -g)" && ln -s @zeppos/zeus-cli/private-modules/zeppos-app-utils zeppos-app-utils
 zeus login
 cd src/watchfaces/<name>
 zeus dev        # 시뮬레이터/QR 프리뷰
@@ -63,9 +66,9 @@ zeus build      # dist/ 에 .zab 생성
 ## 현재 상태와 다음 할 일
 
 - [x] 로컬 git 저장소 생성 (`git init` 완료, `.gitignore`에 `.claude/` 포함)
-- [ ] 첫 커밋 (메시지에 원본 출처 명시)
-- [ ] 각 `app.json`의 `appId`, `appName`, `vender` 변경 (원본 값 그대로면 원작자 앱과 충돌. modular의 원본 appId는 1073741)
-- [ ] `zeus build`로 빌드 확인 (text-lines부터)
+- [x] 첫 커밋 (메시지에 원본 출처 명시, 브랜치 `main`)
+- [x] modular `app.json`의 `appId`(1129253), `appName`(modular-wellness), `vender`(sdb8324) 변경 완료. needle, text-lines는 개인 사용 범위 밖이라 원본 값 유지 (등록 시 변경)
+- [x] `zeus build`로 빌드 확인 (**modular만** 진행, 2026-09-29 성공: `dist/1129253-modular-wellness-2.5.4-*.zab`)
 - [ ] 폰트 라이선스 전문(OFL) 포함 여부 결정
 - [ ] 배포 계획이 있으면 modular 이름 변경 및 아이콘 출처 점검
 - [ ] GitHub 원격 저장소 생성은 아직 하지 않음 (공개 시 GPL 조건 확인 후 진행)
