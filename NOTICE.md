@@ -28,3 +28,4 @@
 - 2026-09-29: modular AOD 배터리 아이콘에서 잔량 숫자 제거, 게이지를 테두리와 같은 색(흰색, 20% 이하 빨간색)으로 표시하도록 변경
 - 2026-09-29: modular 폴더명을 `modular-wellness`로 변경 (`src/watchfaces/modular` → `src/watchfaces/modular-wellness`)
 - 2026-09-29: 폰트 라이선스(SIL OFL 1.1) 전문을 `licenses/`에 추가 (Sofia Sans, Play)
+- 2026-09-29: modular-wellness `app.json`의 description 소스 링크를 이 저장소(roto1212/my-watchfaces)로 변경하고 원작자 출처를 병기

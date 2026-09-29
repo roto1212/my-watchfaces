@@ -13,7 +13,7 @@
     "cover": [
       "cover.png"
     ],
-    "description": "Modular watchface. Source code here: https://github.com/novvember/amazfit-watchfaces"
+    "description": "Modular watchface. Source code here: https://github.com/roto1212/my-watchfaces (based on novvember/amazfit-watchfaces, GPL-3.0)"
   },
   "runtime": {
     "apiVersion": {

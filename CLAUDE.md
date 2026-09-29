@@ -20,7 +20,7 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
 | needle | Suunto 기본 페이스 아이디어 | Play Regular (OFL로 알고 있음) | 낮음 |
 | text-lines | 없음 | 없음 | 가장 낮음 |
 
-- 아이콘·이미지 PNG의 출처는 원본 저장소에 명시되어 있지 않다. 스토어 배포 전 교체하거나 원작자(GitHub 이슈, n.demitsuri@gmail.com)에게 문의한다.
+- 아이콘·이미지 PNG의 출처는 원본 저장소에 명시되어 있지 않다. 스토어 배포 전 교체하거나 원작자(GitHub 이슈)에게 문의한다.
 - 폰트(Sofia Sans, Play)는 폰트 파일 메타데이터로 SIL OFL 1.1임을 확인했고, 라이선스 전문은 `licenses/`에 있다.
 - 원본의 다른 페이스(rider-1991, regulus, gradient-watch, verbarius 등 상용 디자인 재현, nothing-* 계열의 Nothing 브랜드 폰트)는 위험이 높아 **의도적으로 가져오지 않았다.** 추가로 가져올 때는 assets·폰트·README 출처를 먼저 검토한다.
 
