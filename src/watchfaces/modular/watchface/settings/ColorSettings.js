@@ -5,7 +5,7 @@ const EDIT_GROUPS_PARAMS = [
     name: 'accent',
     props: {
       x: px(208),
-      y: px(412),
+      y: px(4),
     },
   },
 ];
@@ -35,7 +35,7 @@ export class ColorSettings {
         tips_width: px(120),
         tips_margin: px(6),
         tips_x: px(-28),
-        tips_y: px(-35),
+        tips_y: px(64 + 5),
 
         edit_id: 130,
         optional_types: optionalTypes,

@@ -76,6 +76,7 @@ zeus build      # dist/ 에 .zab 생성
 - [x] 실기기(Amazfit Active 3 Premium) 설치 및 동작 확인 (2026-09-29)
 - [x] modular 상단 12시 방향 배터리 위젯 추가 (`watchface/BatteryTopWidget.js`, 숫자만 아이콘 안에 표시, 20% 이하 빨간색, AOD 표시). 실기기 확인 완료
 - [x] modular 하단 이동거리 → 심박수(BPM) 하트 위젯으로 교체 (`watchface/HeartBottomWidget.js`, 일반 모드만 표시). 이동거리는 좌우 사이드 옵션(`distance`)으로 이전. 실기기 확인 완료
+- [x] modular 하단 위젯을 편집 가능한 슬롯으로 변경 (`settings/BottomSettings.js`, edit_id 140, 옵션 heart(기본)/distance/steps/disable). 색상 테마 편집 슬롯은 12시 방향(y=4)으로 이동, 편집 모드 상단 안내 텍스트 삭제. 실기기 확인 완료
 - [ ] (검토 중) AOD 배터리 아이콘에서 숫자 제거, 잔량 게이지를 테두리와 같은 색으로 표시
 - [ ] 폰트 라이선스 전문(OFL) 포함 여부 결정
 - [ ] 배포 계획이 있으면 modular 이름 변경 및 아이콘 출처 점검

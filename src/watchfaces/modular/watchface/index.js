@@ -29,6 +29,9 @@ import { TimeSettings } from './settings/TimeSettings';
 import { SideSettings } from './settings/SideSettings';
 import { BatterySideWidget } from './sideWidgets/BatterySideWidget';
 import { ColorSettings } from './settings/ColorSettings';
+import { BottomSettings } from './settings/BottomSettings';
+import { BottomTextWidget } from './BottomTextWidget';
+import { formatNumber } from '../../../utils/formatNumber';
 import { BatteryTopWidget } from './BatteryTopWidget';
 import { DistanceSideWidget } from './sideWidgets/DistanceSideWidget';
 
@@ -46,7 +49,7 @@ WatchFace({
     this.buildTime();
 
     this.buildSleep();
-    this.buildHeartBottom();
+    this.buildBottom();
     this.buildStatusIcons();
     this.buildBatteryTop();
 
@@ -160,6 +163,59 @@ WatchFace({
     new DistanceSideWidget({
       distanceSensor: this._distanceSensor,
       side,
+      colorTheme: this._colorTheme,
+    });
+  },
+
+  buildBottom() {
+    const bottomSettings = new BottomSettings();
+    const type = bottomSettings.settings.bottom || 'unknown';
+
+    switch (type) {
+      case 'heart':
+        this.buildHeartBottom();
+        break;
+
+      case 'distance':
+        this.buildDistanceBottom();
+        break;
+
+      case 'steps':
+        this.buildStepsBottom();
+        break;
+
+      case 'empty':
+        break;
+
+      default:
+        console.log('Unknown bottom type', type);
+        break;
+    }
+  },
+
+  buildDistanceBottom() {
+    this._distanceSensor =
+      this._distanceSensor || hmSensor.createSensor(hmSensor.id.DISTANCE);
+
+    new BottomTextWidget({
+      sensor: this._distanceSensor,
+      event: hmSensor.event.LAST,
+      getText: ({ current = 0 }) =>
+        current < 1000
+          ? `${current} M`
+          : `${(current / 1000).toFixed(1)} KM`,
+      colorTheme: this._colorTheme,
+    });
+  },
+
+  buildStepsBottom() {
+    this._stepSensor =
+      this._stepSensor || hmSensor.createSensor(hmSensor.id.STEP);
+
+    new BottomTextWidget({
+      sensor: this._stepSensor,
+      event: hmSensor.event.CHANGE,
+      getText: ({ current = 0 }) => formatNumber(current, ' '),
       colorTheme: this._colorTheme,
     });
   },
