@@ -1,6 +1,5 @@
 import { clamp } from '../../../utils/clamp';
 import {
-  BATTERY_TOP_AOD_TEXT_PROPS,
   BATTERY_TOP_BODY,
   BATTERY_TOP_GAUGE,
   BATTERY_TOP_TERMINAL,
@@ -11,7 +10,6 @@ import { COLORS } from './index.const';
 const LOW_LEVEL = 20;
 const LOW_OUTLINE_COLOR = 0xff3b30;
 const LOW_GAUGE_COLOR = 0x9b1c1c;
-const AOD_GAUGE_COLOR = 0x444444;
 
 /**
  * @typedef {Object} BatteryTopWidgetParams
@@ -21,7 +19,8 @@ const AOD_GAUGE_COLOR = 0x444444;
 
 /**
  * 12시 방향 상단의 배터리 아이콘. 잔량 숫자(% 없음)를 아이콘 안에 표시한다.
- * 20% 이하이면 빨간색으로 바뀐다. 일반 모드와 AOD 모두 표시한다.
+ * 20% 이하이면 빨간색으로 바뀐다. 일반 모드와 AOD 모두 표시하며,
+ * AOD에서는 숫자 없이 게이지만 테두리와 같은 색으로 표시한다.
  */
 export class BatteryTopWidget {
   /**
@@ -37,7 +36,6 @@ export class BatteryTopWidget {
     });
     this._aod = this._createIcon({
       showLevel: hmUI.show_level.ONLY_AOD,
-      textProps: BATTERY_TOP_AOD_TEXT_PROPS,
     });
 
     this._update = this._update.bind(this);
@@ -47,7 +45,7 @@ export class BatteryTopWidget {
   /**
    * @param {Object} params
    * @param {number} params.showLevel
-   * @param {Object} params.textProps
+   * @param {Object} [params.textProps] 없으면 숫자를 표시하지 않는다
    */
   _createIcon({ showLevel, textProps }) {
     const gauge = hmUI.createWidget(hmUI.widget.FILL_RECT, {
@@ -68,10 +66,12 @@ export class BatteryTopWidget {
       show_level: showLevel,
     });
 
-    const text = hmUI.createWidget(hmUI.widget.TEXT, {
-      ...textProps,
-      show_level: showLevel,
-    });
+    const text = textProps
+      ? hmUI.createWidget(hmUI.widget.TEXT, {
+          ...textProps,
+          show_level: showLevel,
+        })
+      : undefined;
 
     return { gauge, body, terminal, text };
   }
@@ -85,10 +85,8 @@ export class BatteryTopWidget {
     const theme = COLORS[this._colorTheme] || COLORS.common;
 
     if (isAod) {
-      return {
-        outline: isLow ? LOW_OUTLINE_COLOR : COLORS.common.aod,
-        gauge: isLow ? LOW_GAUGE_COLOR : AOD_GAUGE_COLOR,
-      };
+      const color = isLow ? LOW_OUTLINE_COLOR : COLORS.common.aod;
+      return { outline: color, gauge: color };
     }
 
     return {
@@ -115,7 +113,7 @@ export class BatteryTopWidget {
       });
       icon.body.setProperty(hmUI.prop.COLOR, outline);
       icon.terminal.setProperty(hmUI.prop.COLOR, outline);
-      icon.text.setProperty(hmUI.prop.TEXT, String(level));
+      icon.text?.setProperty(hmUI.prop.TEXT, String(level));
     });
   }
 

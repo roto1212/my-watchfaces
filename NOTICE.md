@@ -24,3 +24,4 @@
 - 2026-09-29: modular 하단 이동거리 텍스트를 심박수 위젯으로 교체 (`HeartBottomWidget`, 하트 아이콘은 Pillow로 직접 생성해 `assets/common.r/heart/`에 추가, 숫자를 하트 안에 표시, 일반 모드만 표시). 이동거리는 좌우 사이드 위젯 옵션(`distance`, `DistanceSideWidget`)으로 이전하고 기존 `DistanceWidget` 삭제. 겹침 방지를 위해 수면 텍스트 y를 412에서 404로 이동
 - 2026-09-29: modular 하단 위젯을 편집 가능한 슬롯으로 변경 (`BottomSettings`, edit_id 140, 옵션: heart(기본)/distance/steps/disable). 거리·걸음 수는 `BottomTextWidget`으로 표시하고, 편집 영역 테두리 이미지(`edit/bottom_select.png`, `bottom_unselect.png`)를 Pillow로 생성해 추가
 - 2026-09-29: modular 편집 모드 상단의 앱 이름/버전/벤더 안내 텍스트 삭제 (`WidgetSettings._buildBackground`). 색상 테마 편집 슬롯을 6시에서 12시 방향(y=4)으로 이동해 하단 편집 슬롯과 겹침 방지
+- 2026-09-29: modular AOD 배터리 아이콘에서 잔량 숫자 제거, 게이지를 테두리와 같은 색(흰색, 20% 이하 빨간색)으로 표시하도록 변경

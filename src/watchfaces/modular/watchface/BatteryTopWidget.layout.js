@@ -39,8 +39,3 @@ export const BATTERY_TOP_TEXT_PROPS = {
   font: FONTS.widget,
   text: '-',
 };
-
-export const BATTERY_TOP_AOD_TEXT_PROPS = {
-  ...BATTERY_TOP_TEXT_PROPS,
-  font: FONTS.aod,
-};
