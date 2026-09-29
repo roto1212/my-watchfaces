@@ -20,3 +20,4 @@
 
 ## 변경 이력
 - 2026-09-29: modular의 `appId`(1073741 → 1129253)와 `appName`(Modular → modular-wellness), `vender`(novvember → sdb8324)를 개발자 콘솔 등록 값으로 변경
+- 2026-09-29: modular 상단 12시 방향에 배터리 위젯 추가 (`BatteryTopWidget`, 아이콘은 도형으로 직접 그림, 잔량 숫자를 아이콘 안에 표시, 20% 이하 빨간색, AOD 표시). 충돌 방지를 위해 연결 끊김 아이콘 위치를 (268,18)에서 (290,22)로 이동

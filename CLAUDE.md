@@ -73,6 +73,8 @@ zeus build      # dist/ 에 .zab 생성
 - [x] 첫 커밋 (메시지에 원본 출처 명시, 브랜치 `main`)
 - [x] modular `app.json`의 `appId`(1129253), `appName`(modular-wellness), `vender`(sdb8324) 변경 완료. needle, text-lines는 개인 사용 범위 밖이라 원본 값 유지 (등록 시 변경)
 - [x] `zeus build`로 빌드 확인 (**modular만** 진행, 2026-09-29 성공: `dist/1129253-modular-wellness-2.5.4-*.zab`)
+- [x] 실기기(Amazfit Active 3 Premium) 설치 및 동작 확인 (2026-09-29)
+- [x] modular 상단 12시 방향 배터리 위젯 추가 (`watchface/BatteryTopWidget.js`, 숫자만 아이콘 안에 표시, 20% 이하 빨간색, AOD 표시). 실기기 확인 완료
 - [ ] 폰트 라이선스 전문(OFL) 포함 여부 결정
 - [ ] 배포 계획이 있으면 modular 이름 변경 및 아이콘 출처 점검
 - [ ] GitHub 원격 저장소 생성은 아직 하지 않음 (공개 시 GPL 조건 확인 후 진행)

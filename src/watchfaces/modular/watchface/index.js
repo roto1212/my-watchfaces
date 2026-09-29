@@ -29,6 +29,7 @@ import { TimeSettings } from './settings/TimeSettings';
 import { SideSettings } from './settings/SideSettings';
 import { BatterySideWidget } from './sideWidgets/BatterySideWidget';
 import { ColorSettings } from './settings/ColorSettings';
+import { BatteryTopWidget } from './BatteryTopWidget';
 
 WatchFace({
   onInit() {
@@ -46,6 +47,7 @@ WatchFace({
     this.buildSleep();
     this.buildDistance();
     this.buildStatusIcons();
+    this.buildBatteryTop();
 
     this.buildSides();
 
@@ -163,6 +165,16 @@ WatchFace({
 
   buildStatusIcons() {
     new StatusIconsWidget();
+  },
+
+  buildBatteryTop() {
+    this._batterySensor =
+      this._batterySensor || hmSensor.createSensor(hmSensor.id.BATTERY);
+
+    new BatteryTopWidget({
+      batterySensor: this._batterySensor,
+      colorTheme: this._colorTheme,
+    });
   },
 
   buildWidgets() {
