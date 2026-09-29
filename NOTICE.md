@@ -14,9 +14,10 @@
 - needle: Suunto 기본 워치페이스에서 아이디어
 - text-lines: 별도 참고 없음
 
-## 폰트 (제3자, 라이선스는 배포 전 직접 확인 필요)
-- modular: Sofia Sans (SemiBold, ExtraCondensed Regular/Thin)
-- needle: Play Regular
+## 폰트 (제3자, SIL Open Font License 1.1)
+- modular: Sofia Sans (SemiBold, ExtraCondensed Regular/Thin) — `licenses/OFL-SofiaSans.txt`
+- needle: Play Regular — `licenses/OFL-Play.txt`
+- 폰트 파일 자체의 메타데이터(저작권·라이선스 필드)로 OFL 1.1을 확인함 (2026-09-29)
 
 ## 변경 이력
 - 2026-09-29: modular의 `appId`(1073741 → 1129253)와 `appName`(Modular → modular-wellness), `vender`(novvember → sdb8324)를 개발자 콘솔 등록 값으로 변경
@@ -26,3 +27,4 @@
 - 2026-09-29: modular 편집 모드 상단의 앱 이름/버전/벤더 안내 텍스트 삭제 (`WidgetSettings._buildBackground`). 색상 테마 편집 슬롯을 6시에서 12시 방향(y=4)으로 이동해 하단 편집 슬롯과 겹침 방지
 - 2026-09-29: modular AOD 배터리 아이콘에서 잔량 숫자 제거, 게이지를 테두리와 같은 색(흰색, 20% 이하 빨간색)으로 표시하도록 변경
 - 2026-09-29: modular 폴더명을 `modular-wellness`로 변경 (`src/watchfaces/modular` → `src/watchfaces/modular-wellness`)
+- 2026-09-29: 폰트 라이선스(SIL OFL 1.1) 전문을 `licenses/`에 추가 (Sofia Sans, Play)

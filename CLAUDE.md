@@ -21,7 +21,7 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
 | text-lines | 없음 | 없음 | 가장 낮음 |
 
 - 아이콘·이미지 PNG의 출처는 원본 저장소에 명시되어 있지 않다. 스토어 배포 전 교체하거나 원작자(GitHub 이슈, n.demitsuri@gmail.com)에게 문의한다.
-- 폰트 라이선스는 이 저장소에 파일이 없다. 배포 시 OFL 라이선스 전문을 함께 넣는다. (Google Fonts에서 재확인 필요)
+- 폰트(Sofia Sans, Play)는 폰트 파일 메타데이터로 SIL OFL 1.1임을 확인했고, 라이선스 전문은 `licenses/`에 있다.
 - 원본의 다른 페이스(rider-1991, regulus, gradient-watch, verbarius 등 상용 디자인 재현, nothing-* 계열의 Nothing 브랜드 폰트)는 위험이 높아 **의도적으로 가져오지 않았다.** 추가로 가져올 때는 assets·폰트·README 출처를 먼저 검토한다.
 
 ## 구조
@@ -79,7 +79,7 @@ zeus build      # dist/ 에 .zab 생성
 - [x] modular 하단 이동거리 → 심박수(BPM) 하트 위젯으로 교체 (`watchface/HeartBottomWidget.js`, 일반 모드만 표시). 이동거리는 좌우 사이드 옵션(`distance`)으로 이전. 실기기 확인 완료
 - [x] modular 하단 위젯을 편집 가능한 슬롯으로 변경 (`settings/BottomSettings.js`, edit_id 140, 옵션 heart(기본)/distance/steps/disable). 색상 테마 편집 슬롯은 12시 방향(y=4)으로 이동, 편집 모드 상단 안내 텍스트 삭제. 실기기 확인 완료
 - [x] AOD 배터리 아이콘에서 숫자 제거, 잔량 게이지를 테두리와 같은 색으로 표시 (20% 이하 빨간색). 실기기 확인 완료
-- [ ] 폰트 라이선스 전문(OFL) 포함 여부 결정
+- [x] 폰트 라이선스 전문(OFL 1.1) 포함 완료 (`licenses/OFL-SofiaSans.txt`, `licenses/OFL-Play.txt`. 폰트 파일 메타데이터로 라이선스 확인)
 - [ ] 배포 계획이 있으면 아이콘 출처 점검 (modular 이름은 `modular-wellness`로 변경 완료)
 - [ ] GitHub 원격 저장소 생성은 아직 하지 않음 (공개 시 GPL 조건 확인 후 진행)
 
