@@ -25,6 +25,12 @@ msgstr "Date"
 msgid "battery"
 msgstr "Battery"
 
+msgid "distance"
+msgstr "Distance"
+
+msgid "km"
+msgstr "km"
+
 msgid "seconds"
 msgstr "Seconds"
 

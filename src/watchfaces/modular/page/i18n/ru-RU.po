@@ -22,6 +22,12 @@ msgstr "Ветер"
 msgid "date"
 msgstr "Дата"
 
+msgid "distance"
+msgstr "Расстояние"
+
+msgid "km"
+msgstr "км"
+
 msgid "battery"
 msgstr "Батарея"
 

@@ -31,4 +31,14 @@ export const SETTINGS_SIDE_OPTIONAL_TYPES = [
       type: 'battery',
     },
   },
+  {
+    type: 100204,
+    title_en: gettext('distance'),
+    title_tc: gettext('distance'),
+    title_sc: gettext('distance'),
+    preview: 'edit/side_preview_distance.png',
+    data: {
+      type: 'distance',
+    },
+  },
 ];

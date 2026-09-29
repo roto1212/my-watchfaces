@@ -1,4 +1,4 @@
-import { DistanceWidget } from './DistanceWidget';
+import { HeartBottomWidget } from './HeartBottomWidget';
 import { HeartSideWidget } from './sideWidgets/HeartSideWidget';
 import { WIDGETS } from './index.const';
 import { WidgetSettings } from './settings/WidgetSettings';
@@ -30,6 +30,7 @@ import { SideSettings } from './settings/SideSettings';
 import { BatterySideWidget } from './sideWidgets/BatterySideWidget';
 import { ColorSettings } from './settings/ColorSettings';
 import { BatteryTopWidget } from './BatteryTopWidget';
+import { DistanceSideWidget } from './sideWidgets/DistanceSideWidget';
 
 WatchFace({
   onInit() {
@@ -45,7 +46,7 @@ WatchFace({
     this.buildTime();
 
     this.buildSleep();
-    this.buildDistance();
+    this.buildHeartBottom();
     this.buildStatusIcons();
     this.buildBatteryTop();
 
@@ -93,6 +94,11 @@ WatchFace({
         case 'battery':
           // @ts-ignore
           this.buildBatterySide(side);
+          break;
+
+        case 'distance':
+          // @ts-ignore
+          this.buildDistanceSide(side);
           break;
 
         default:
@@ -144,12 +150,26 @@ WatchFace({
     });
   },
 
-  buildDistance() {
+  /**
+   * @param {'left' | 'right'} side
+   */
+  buildDistanceSide(side) {
     this._distanceSensor =
       this._distanceSensor || hmSensor.createSensor(hmSensor.id.DISTANCE);
 
-    new DistanceWidget({
+    new DistanceSideWidget({
       distanceSensor: this._distanceSensor,
+      side,
+      colorTheme: this._colorTheme,
+    });
+  },
+
+  buildHeartBottom() {
+    this._heartSensor =
+      this._heartSensor || hmSensor.createSensor(hmSensor.id.HEART);
+
+    new HeartBottomWidget({
+      heartSensor: this._heartSensor,
       colorTheme: this._colorTheme,
     });
   },

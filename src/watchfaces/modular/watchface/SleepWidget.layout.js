@@ -2,7 +2,7 @@ import { COLORS, FONTS } from './index.const';
 
 export const SLEEP_TEXT_PROPS = {
   x: px(150),
-  y: px(412),
+  y: px(404),
   w: px(180),
   h: px(28),
   color: COLORS.common.secondary,
