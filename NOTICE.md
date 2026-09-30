@@ -29,3 +29,4 @@
 - 2026-09-29: modular 폴더명을 `modular-wellness`로 변경 (`src/watchfaces/modular` → `src/watchfaces/modular-wellness`)
 - 2026-09-29: 폰트 라이선스(SIL OFL 1.1) 전문을 `licenses/`에 추가 (Sofia Sans, Play)
 - 2026-09-29: modular-wellness `app.json`의 description 소스 링크를 이 저장소(roto1212/my-watchfaces)로 변경하고 원작자 출처를 병기
+- 2026-09-30: modular-wellness 폴더의 원작자 데모 이미지(`demo*.png`, `preview.png`)를 `docs/modular-wellness/original-images/`로 이동해 스토어 패키지(.zab)에 포함되지 않게 함. 스토어용 스크린샷은 `docs/modular-wellness/store/`에 보관
