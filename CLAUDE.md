@@ -56,15 +56,37 @@ Amazfit(Zepp OS) 워치페이스 프로젝트. 오픈소스 저장소에서 페�
     - 확인 결과 (2026-09-29): Amazfit Active 3 Premium(466x466 원형)에 modular-wellness 설치 성공. 워치에는 나타나고 Zepp 앱의 워치페이스 목록에는 안 보임 (개발자 모드 설치 특성으로 추정)
 
 ```bash
-pnpm add -g @zeppos/zeus-cli
-# WSL + pnpm: zeus 실행 시 "Cannot find module 'zeppos-app-utils'" 에러가 나면
-# (pnpm이 패키지 내부 private-modules를 링크하지 않음) 전역 node_modules에 심볼릭 링크를 건다.
-#   cd "$(pnpm root -g)" && ln -s @zeppos/zeus-cli/private-modules/zeppos-app-utils zeppos-app-utils
+pnpm setup && source ~/.bashrc     # 전역 bin 경로(PATH) 등록, 최초 1회
+# pnpm 기본(격리) 구조에서는 zeus가 동작하지 않는다.
+#   1) module-alias가 package.json을 못 찾음  2) zeppos-app-utils를 링크하지 않음
+# 그래서 hoisted 옵션으로 설치하고 zeppos-app-utils 링크를 직접 건다.
+pnpm add -g @zeppos/zeus-cli --config.node-linker=hoisted --config.shamefully-hoist=true --config.public-hoist-pattern='*'
+cd "$(pnpm root -g)" && ln -s @zeppos/zeus-cli/private-modules/zeppos-app-utils zeppos-app-utils
 zeus login
 cd src/watchfaces/<name>
 zeus dev        # 시뮬레이터/QR 프리뷰
 zeus build      # dist/ 에 .zab 생성
 ```
+
+### Windows 시뮬레이터 (Zepp OS Simulator 2.1.2)
+
+- 시뮬레이터와 `zeus dev`는 **Windows 쪽 셸(PowerShell)**에서 실행한다. WSL의 프로젝트 대신 Windows에 GitHub 저장소를 clone해서 쓴다 (코드는 WSL에서만 수정하고 Windows는 `git pull`).
+- `zeus-cli` 설치는 WSL과 같은 이유로 hoisted 옵션 + 링크가 필요하다. Windows에서는 심볼릭 링크 대신 **Junction**(관리자 권한 불필요)을 쓴다.
+
+```powershell
+pnpm setup                      # 이후 PowerShell 재시작
+# 이전에 격리 구조로 설치한 적이 있으면 옛 메타데이터 때문에 옵션 충돌(ERR_PNPM_PUBLIC_HOIST_PATTERN_DIFF)이 난다
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\pnpm\global\5\node_modules"
+pnpm add -g @zeppos/zeus-cli --config.node-linker=hoisted --config.shamefully-hoist=true "--config.public-hoist-pattern=*"
+$nm = pnpm root -g
+New-Item -ItemType Junction -Path "$nm\zeppos-app-utils" -Target "$nm\@zeppos\zeus-cli\private-modules\zeppos-app-utils"
+zeus login
+```
+
+- 실행 순서: 시뮬레이터에서 기기 모델(Amazfit Active 3 Premium)을 받아 `Device Simulator` 창을 먼저 연다 → `cd src\watchfaces\modular-wellness; zeus dev` → `simulator host` 프롬프트는 Enter(127.0.0.1).
+- **`corepack use pnpm@12.x`로 pnpm을 올리지 말 것.** 프로젝트 `package.json`에 `packageManager`가 기록되고 corepack 캐시가 깨져서 그 폴더의 모든 `pnpm` 명령이 실패한다 (복구: `git checkout -- package.json`).
+- 확인 결과 (2026-09-29): Windows 시뮬레이터에서 modular-wellness 정상 표시.
+- Sensors 탭으로 센서 값(배터리, 심박 등)을 바꿔 위젯 동작을 확인할 수 있고, 스크린샷은 시뮬레이터 상단 메뉴에 있다.
 
 - 루트 `pnpm build`(`scripts/build.js`)는 `INIT_CWD`가 `src/watchfaces/*` 안이어야 동작하며 npm 기준으로 작성되어 있다. pnpm에서 동작하지 않으면 스크립트를 수정한다.
 
